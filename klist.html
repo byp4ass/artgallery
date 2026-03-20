@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Random Painting Viewer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+    h1 { margin-bottom: 20px; }
+    img {
+      max-width: 80%;
+      max-height: 500px;
+      border: 5px solid #333;
+      border-radius: 10px;
+      background: white;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    #info {
+      margin-top: 15px;
+      font-size: 18px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #quote {
+      font-style: italic;
+      margin-top: 10px;
+    }
+    #author {
+      margin-top: 5px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<h1>personal art gallery</h1>
+
+<img id="painting" src="" alt="">
+<div id="info">
+  <div id="title"></div>
+  <div id="quote"></div>
+  <div id="author"></div>
+</div>
+
+<button onclick="showRandomPainting()">click me</button>
+
+<script>
+const paintings = [
+  {
+    title: "Mona Lisa",
+    url: "https://upload.wikimedia.org/wikipedia/commons/6/6a/Mona_Lisa.jpg",
+    quote: "She seems to live and conceal a mystery beyond time.",
+    author: "Giorgio Vasari"
+  },
+  {
+    title: "Starry Night",
+    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVLGXX5YTICI_RyrdfexhHngyWHfrE3zFASg&s",
+    quote: "I dream of painting, and then I paint my dream.",
+    author: "Vincent van Gogh"
+  },
+  {
+    title: "The Scream",
+    url: "https://upload.wikimedia.org/wikipedia/commons/f/f4/The_Scream.jpg",
+    quote: "I felt a great scream pass through nature.",
+    author: "Edvard Munch"
+  },
+  {
+    title: "The Persistence of Memory",
+    url: "https://upload.wikimedia.org/wikipedia/en/d/dd/The_Persistence_of_Memory.jpg",
+    quote: "Time must lose its rigidity and become soft.",
+    author: "Salvador Dalí"
+  },
+  {
+    title: "Guernica",
+    url: "https://upload.wikimedia.org/wikipedia/en/7/74/PicassoGuernica.jpg",
+    quote: "Painting is an instrument of war.",
+    author: "Pablo Picasso"
+  },
+  {
+    title: "The Night Watch",
+    url: "https://www.cnet.com/a/img/resize/e8d756831bea5e9ef3e0b2e989edf0c25bc88888/hub/2020/05/13/d442149f-78bc-496c-a86a-bc215d42bf5f/nightwatch.jpg?auto=webp&fit=crop&height=675&width=1200",
+    quote: "Movement and life define the soul of a painting.",
+    author: "Rembrandt"
+  },
+  {
+    title: "Girl with a Pearl Earring",
+    url: "https://upload.wikimedia.org/wikipedia/commons/d/d7/Meisje_met_de_parel.jpg",
+    quote: "A moment caught between silence and speech.",
+    author: "Johannes Vermeer (attributed)"
+  },
+  {
+    title: "The Kiss",
+    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjTHMl_qrodmRfgPDmuAuu_lwW6VnS2SdRVw&s",
+    quote: "All art is erotic.",
+    author: "Gustav Klimt"
+  },
+  {
+    title: "American Gothic",
+    url: "https://cdn.britannica.com/47/24347-050-9719FF7E/American-Gothic-beaverboard-Grant-Wood-Art-Institute-1930.jpg",
+    quote: "I had to go to Europe to appreciate America.",
+    author: "Grant Wood"
+  },
+  {
+    title: "Nighthawks",
+    url: "https://upload.wikimedia.org/wikipedia/commons/a/a8/Nighthawks_by_Edward_Hopper_1942.jpg",
+    quote: "I was painting the loneliness of a city.",
+    author: "Edward Hopper"
+  },
+  {
+    title: "self portrait",
+    url: "https://i.ibb.co/gFWLmbkG/IMG-6231.jpg",
+    quote: "pretty cool painting",
+    author: "jojo2fly"
+  }
+];
+
+function showRandomPainting() {
+  const randomIndex = Math.floor(Math.random() * paintings.length);
+  const painting = paintings[randomIndex];
+
+  document.getElementById("painting").src = painting.url;
+  document.getElementById("painting").alt = painting.title;
+  document.getElementById("title").innerText = painting.title;
+  document.getElementById("quote").innerText = `"${painting.quote}"`;
+  document.getElementById("author").innerText = "- " + painting.author;
+}
+
+window.onload = showRandomPainting;
+</script>
+
+</body>
+</html>
